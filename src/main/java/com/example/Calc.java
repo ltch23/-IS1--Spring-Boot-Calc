@@ -1,28 +1,24 @@
 package com.example;
 
-
 public class Calc {
-
-	public float calculator(float num1,float num2,String op)
+	
+	
+	public float calculator(float num1,float num2, String op)
 	{	
-	switch (op)
-	{
-		 case "add":
-			 op="+";
-			 return add(num1, num2);
-		 case "subtract":
-			 op="-";
-			 return substact(num1, num2); 
-		 case "multiply":	 
-			 op="*";
-			 return multiply(num1,num2); 
-		 case "divide":
-			 op="/";
+		switch (op)
+		{
+		case "add":
+			 return add(num1,num2);
+		case "subtract":
+			 return subtact(num1,num2); 
+		case "multiply":
+			 return multiply(num1,num2);
+		case "divide":
 			 return divide(num1,num2);
+		//add more operators;
 		default:
 			return xdefault(num1,num2);
-	}
-	
+		}
 	}
 	
 	public float  add(float num1, float num2)
@@ -30,7 +26,7 @@ public class Calc {
 	return num1+num2;
 	}
 	
-	public float substact(float num1, float num2)
+	public float subtact(float num1, float num2)
 	{
 	return num1-num2;
 	}
@@ -42,12 +38,13 @@ public class Calc {
 	
 	public float divide(float num1, float num2)
 	{
-	return num1/num2;
+		return num1/num2;
 	}
 	
+	// add more methods
 	public float xdefault(float num1, float num2)
 	{
-	return -1001;
+	return 0;
 		
 	}
 	
