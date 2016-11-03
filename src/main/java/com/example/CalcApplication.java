@@ -1,4 +1,6 @@
 package com.example;
+import com.example.Calc;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SpringBootApplication
 public class CalcApplication
 {
-
+	Calc calc= new Calc();
 	 @RequestMapping("/")
 	 @ResponseBody
 	 String home()
@@ -26,29 +28,10 @@ public class CalcApplication
 	 {
 	 	 float num1,num2,rpta;
 	 	 rpta=0;
-		 num1=Float.parseFloat(n1);
+	 	 num1=Float.parseFloat(n1);
 		 num2=Float.parseFloat(n2);
 		 
-		 switch(op)
-		 {
-		 case "add":
-			 rpta=num1+num2; op="+"; break;
-		 case "subtract":
-			 rpta=num1-num2; op="-";break;
-		 case "multiply":
-			 rpta=num1*num2; op="*";break;
-		 case "divide":
-			 try{
-			 rpta=num1/num2;}
-			 finally{
-				 if(num2==0)
-				 return "ingrese num2 valida";
-			 }
-			 op="/";
-			 break;
-		 default:
-			 return "ingrese  operacion  valida "+ op;
-		}
+		 rpta=calc.calculator(num1,num2,op);
 		
 		 return n1+"  " +op+ " " +n2+ " = "+Float.toString(rpta);
 		 
